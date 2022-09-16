@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+body {
+    
+    color: #fff; /* Цвет текста */
+}
+
+.advantages-item {
+  font-size: 34px;
+  color: #e79417;
+}
+.advantages-item2 {
+  font-size: 20px;
+  padding: 2px;
+  width: 30%;
+}
+.advantages-item3 {
+  font-size: 20px;
+  padding: 2px;
+  width: 80%;
+}
+.min1 {
+  font-size: 20px;
+  color: #fff;
+}
+
+.max1 {
+  font-size: 20px;
+  color: #fff;
+}
+
+.tt {
+  font-size: 20px;
+  color: #fff;
+}
+</style>
+
+<p class="advantages-item">Find similar product:</p>
+
+
+<form method="POST" action="{{ url_for('my_form_post') }}">
+<label for="name">Select Sources:</label>
+  <select name="comp_select" >  <!--class="btn btn-danger"-->
+	<option selected="s4">All</option>
+	<option value="s1">TNVED</option>
+	<option value="s2">ENSTRU</option>
+
+	
+
+  </select>
+  
+	<label for="name">Enter product name:</label>
+	<input type="text" name="name2" id="name" class="advantages-item2">
+	<input type="submit" value="search">
+
+</form>
+
+<p> request time: {{time_calc}} seconds </p>
+<p class="advantages-item3"> TOP 10 similar products:</p>
+  
+<table>
+
+<tr>
+  <th>SOURCE</th>
+  <th>CODE</th>
+  <th style="text-align:center">NAME</th>
+  <th style="text-align:center">DESCRIPTION</th>
+  <th>SCORE</th>
+</tr>
+{% for i in data %} 
+<tr>
+  <td>{{i.source}}</td>
+  <td>{{i.code}}</td>
+  <td>{{i.name}}</td>
+  <td>{{i.description}}</td>
+  <td>{{i.score}}</td>
+
+</tr>
+{% endfor %}  
+
+</table>
+
+<meta charset="UTF-8">
+<title>Creating Real-Time Charts with Flask</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" rel="stylesheet">
+
+
+
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+
+
+
+
+</html>
